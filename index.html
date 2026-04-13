@@ -3,19 +3,48 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>テキストダンジョン</title>
+  <title>Tile Grove</title>
   <link rel="manifest" href="manifest.webmanifest" />
   <link rel="stylesheet" href="style.css" />
-  <meta name="theme-color" content="#111111" />
-  <link rel="apple-touch-icon" href="icons/icon-192.png" />
+  <meta name="theme-color" content="#1f2937" />
 </head>
 <body>
   <main class="wrap">
-    <h1>テキストダンジョン</h1>
-    <div id="text"></div>
-    <div id="choices"></div>
-    <button id="saveBtn">セーブ</button>
-    <button id="loadBtn">ロード</button>
+    <header class="top">
+      <div>
+        <h1>Tile Grove</h1>
+        <p class="sub">同じ地形をつなげてスコアを伸ばすパズル</p>
+      </div>
+      <button id="restartBtn">やりなおす</button>
+    </header>
+
+    <section class="panel">
+      <div class="info-box">
+        <span>スコア</span>
+        <strong id="score">0</strong>
+      </div>
+      <div class="info-box">
+        <span>ハイスコア</span>
+        <strong id="highScore">0</strong>
+      </div>
+      <div class="info-box next-box">
+        <span>次のタイル</span>
+        <div id="nextTile" class="next-tile"></div>
+      </div>
+    </section>
+
+    <section class="rule">
+      <p>空いているマスをタップして配置。</p>
+      <p>上下左右で同じ種類がつながるほど高得点。</p>
+    </section>
+
+    <div id="board" class="board"></div>
+
+    <section id="gameOver" class="game-over hidden">
+      <h2>ゲーム終了</h2>
+      <p>最終スコア: <span id="finalScore">0</span></p>
+      <button id="restartBtn2">もう一回</button>
+    </section>
   </main>
 
   <script src="game.js"></script>
